@@ -1,14 +1,10 @@
 <Alloy>
   <TabGroup>
     <Tab title="Fugitives" icon="fugitives.png">
-      <Window title="Fugitives">
-        <TableView class="table" />
-      </Window>
+      <Require type="view" src="fugitives" id="windowFugitives" />
     </Tab>
     <Tab title="Captured" icon="captured.png">
-      <Window title="Captured">
-        <TableView class="table" />
-      </Window>
+      <Require type="view" src="captured" id="windowCaptured" />
     </Tab>
   </TabGroup>
 </Alloy>

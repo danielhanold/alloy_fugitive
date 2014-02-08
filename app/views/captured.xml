@@ -1,0 +1,5 @@
+<Alloy>
+  <Window title="Captured">
+    <TableView class="table" id="tableCaptured" />
+  </Window>
+</Alloy>

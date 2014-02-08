@@ -1,0 +1,5 @@
+<Alloy>
+  <Window title="Fugitives">
+    <TableView class="table" id="tableFugitives" />
+  </Window>
+</Alloy>

@@ -7,42 +7,30 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __alloyId0 = [];
-    $.__views.__alloyId2 = Ti.UI.createWindow({
-        backgroundColor: "#fff",
-        barColor: "#f48b77",
-        title: "Fugitives",
-        id: "__alloyId2"
+    $.__views.windowFugitives = Alloy.createController("fugitives", {
+        id: "windowFugitives"
     });
-    $.__views.__alloyId3 = Ti.UI.createTableView({
-        backgroundImage: "grain.png",
-        id: "__alloyId3"
-    });
-    $.__views.__alloyId2.add($.__views.__alloyId3);
     $.__views.__alloyId1 = Ti.UI.createTab({
-        window: $.__views.__alloyId2,
+        window: $.__views.windowFugitives.getViewEx({
+            recurse: true
+        }),
         title: "Fugitives",
         icon: "fugitives.png",
         id: "__alloyId1"
     });
     __alloyId0.push($.__views.__alloyId1);
-    $.__views.__alloyId5 = Ti.UI.createWindow({
-        backgroundColor: "#fff",
-        barColor: "#f48b77",
-        title: "Captured",
-        id: "__alloyId5"
+    $.__views.windowCaptured = Alloy.createController("captured", {
+        id: "windowCaptured"
     });
-    $.__views.__alloyId6 = Ti.UI.createTableView({
-        backgroundImage: "grain.png",
-        id: "__alloyId6"
-    });
-    $.__views.__alloyId5.add($.__views.__alloyId6);
-    $.__views.__alloyId4 = Ti.UI.createTab({
-        window: $.__views.__alloyId5,
+    $.__views.__alloyId3 = Ti.UI.createTab({
+        window: $.__views.windowCaptured.getViewEx({
+            recurse: true
+        }),
         title: "Captured",
         icon: "captured.png",
-        id: "__alloyId4"
+        id: "__alloyId3"
     });
-    __alloyId0.push($.__views.__alloyId4);
+    __alloyId0.push($.__views.__alloyId3);
     $.__views.index = Ti.UI.createTabGroup({
         tabs: __alloyId0,
         id: "index"
