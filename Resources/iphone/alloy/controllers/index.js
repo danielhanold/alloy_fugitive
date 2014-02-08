@@ -9,51 +9,37 @@ function Controller() {
     var __alloyId0 = [];
     $.__views.__alloyId2 = Ti.UI.createWindow({
         backgroundColor: "#fff",
-        title: "Tab 1",
+        barColor: "#f48b77",
+        title: "Fugitives",
         id: "__alloyId2"
     });
-    $.__views.__alloyId3 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        font: {
-            fontSize: 20,
-            fontFamily: "Helvetica Neue"
-        },
-        textAlign: "center",
-        text: "I am Window 1",
+    $.__views.__alloyId3 = Ti.UI.createTableView({
+        backgroundImage: "grain.png",
         id: "__alloyId3"
     });
     $.__views.__alloyId2.add($.__views.__alloyId3);
     $.__views.__alloyId1 = Ti.UI.createTab({
         window: $.__views.__alloyId2,
-        title: "Tab 1",
-        icon: "KS_nav_ui.png",
+        title: "Fugitives",
+        icon: "fugitives.png",
         id: "__alloyId1"
     });
     __alloyId0.push($.__views.__alloyId1);
     $.__views.__alloyId5 = Ti.UI.createWindow({
         backgroundColor: "#fff",
-        title: "Tab 2",
+        barColor: "#f48b77",
+        title: "Captured",
         id: "__alloyId5"
     });
-    $.__views.__alloyId6 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        font: {
-            fontSize: 20,
-            fontFamily: "Helvetica Neue"
-        },
-        textAlign: "center",
-        text: "I am Window 2",
+    $.__views.__alloyId6 = Ti.UI.createTableView({
+        backgroundImage: "grain.png",
         id: "__alloyId6"
     });
     $.__views.__alloyId5.add($.__views.__alloyId6);
     $.__views.__alloyId4 = Ti.UI.createTab({
         window: $.__views.__alloyId5,
-        title: "Tab 2",
-        icon: "KS_nav_views.png",
+        title: "Captured",
+        icon: "captured.png",
         id: "__alloyId4"
     });
     __alloyId0.push($.__views.__alloyId4);
