@@ -11,7 +11,7 @@ function Controller() {
         id: "windowFugitives"
     });
     $.__views.tabFugitives = Ti.UI.createTab({
-        icon: "fugitives.png",
+        icon: "/images/fugitives.png",
         window: $.__views.windowFugitives.getViewEx({
             recurse: true
         }),
@@ -23,7 +23,7 @@ function Controller() {
         id: "windowCaptured"
     });
     $.__views.tabCaptured = Ti.UI.createTab({
-        icon: "captured.png",
+        icon: "/images/captured.png",
         window: $.__views.windowCaptured.getViewEx({
             recurse: true
         }),

@@ -1,15 +1,15 @@
 "Window": {
-	backgroundColor: "#fff",
+  backgroundColor: "#fff",
   barColor: '#f48b77'
 },
 '.table': {
-  backgroundImage: "grain.png",
+  backgroundImage: "/images/grain.png",
 }
 
 "#tabFugitives[platform=ios]":{
-	icon: 'fugitives.png'
+  icon: '/images/fugitives.png'
 }
 
 "#tabCaptured[platform=ios]":{
-	icon: 'captured.png'
+  icon: '/images/captured.png'
 }
