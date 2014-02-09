@@ -2,16 +2,14 @@
 	backgroundColor: "#fff",
   barColor: '#f48b77'
 },
-"Label": {
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-	color: "#000",
-	font: {
-		fontSize: 20,
-		fontFamily: 'Helvetica Neue'
-	},
-	textAlign: 'center'
-},
 '.table': {
   backgroundImage: "grain.png",
+}
+
+"#tabFugitives[platform=ios]":{
+	icon: 'fugitives.png'
+}
+
+"#tabCaptured[platform=ios]":{
+	icon: 'captured.png'
 }

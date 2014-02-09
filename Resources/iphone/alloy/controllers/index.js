@@ -10,27 +10,27 @@ function Controller() {
     $.__views.windowFugitives = Alloy.createController("fugitives", {
         id: "windowFugitives"
     });
-    $.__views.__alloyId1 = Ti.UI.createTab({
+    $.__views.tabFugitives = Ti.UI.createTab({
+        icon: "fugitives.png",
         window: $.__views.windowFugitives.getViewEx({
             recurse: true
         }),
         title: "Fugitives",
-        icon: "fugitives.png",
-        id: "__alloyId1"
+        id: "tabFugitives"
     });
-    __alloyId0.push($.__views.__alloyId1);
+    __alloyId0.push($.__views.tabFugitives);
     $.__views.windowCaptured = Alloy.createController("captured", {
         id: "windowCaptured"
     });
-    $.__views.__alloyId3 = Ti.UI.createTab({
+    $.__views.tabCaptured = Ti.UI.createTab({
+        icon: "captured.png",
         window: $.__views.windowCaptured.getViewEx({
             recurse: true
         }),
         title: "Captured",
-        icon: "captured.png",
-        id: "__alloyId3"
+        id: "tabCaptured"
     });
-    __alloyId0.push($.__views.__alloyId3);
+    __alloyId0.push($.__views.tabCaptured);
     $.__views.index = Ti.UI.createTabGroup({
         tabs: __alloyId0,
         id: "index"

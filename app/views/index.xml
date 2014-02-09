@@ -1,9 +1,9 @@
 <Alloy>
   <TabGroup>
-    <Tab title="Fugitives" icon="fugitives.png">
+    <Tab title="Fugitives" id="tabFugitives">
       <Require type="view" src="fugitives" id="windowFugitives" />
     </Tab>
-    <Tab title="Captured" icon="captured.png">
+    <Tab title="Captured" id="tabCaptured">
       <Require type="view" src="captured" id="windowCaptured" />
     </Tab>
   </TabGroup>
