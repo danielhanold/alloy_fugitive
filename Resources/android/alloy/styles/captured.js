@@ -1,1 +1,0 @@
-module.exports = [{"isClass":true,"priority":10000.0002,"key":"table","style":{backgroundImage:"grain.png",}}];
