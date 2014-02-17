@@ -1,6 +1,8 @@
 <Alloy>
   <Collection src="fugitives" />
   <Window title="Captured">
-    <TableView class="table" id="tableCaptured" dataCollection="fugitives" />
+    <TableView class="table" id="tableCaptured" dataCollection="fugitives">
+      <TableViewRow title="{name}"></TableViewRow>
+    </TableView>
   </Window>
 </Alloy>
