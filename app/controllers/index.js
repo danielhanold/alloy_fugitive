@@ -8,13 +8,9 @@ var fugitives = Alloy.Collections.fugitives;
 fugitives.fetch();
 
 // Show the contents of each collections.
-Ti.API.info(JSON.stringify(fugitives.toJSON()));
 fugitives.each(function(fugitive, index) {
   Ti.API.info('fugitive #' + index + ': ' + fugitive.get('name'));
-
 });
-
-
 
 if (!seeded) {
   // Define yuppers names.

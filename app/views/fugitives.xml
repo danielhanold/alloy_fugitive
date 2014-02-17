@@ -2,7 +2,7 @@
   <Collection src="fugitives" />
   <Window title="Fugitives">
     <TableView class="table" id="tableFugitives" dataCollection="fugitives">
-      <TableViewRow title="{name}"></TableViewRow>
+      <Require type="view" src="fugitivesRow" id="tableViewRowFugitives" />
     </TableView>
   </Window>
 </Alloy>

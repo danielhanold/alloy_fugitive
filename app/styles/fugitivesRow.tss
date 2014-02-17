@@ -1,0 +1,9 @@
+'#tableViewRow': {
+  height: 36
+},
+"#rowView": {
+
+},
+'#rowLabel': {
+  left: 5
+},
