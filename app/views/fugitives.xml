@@ -1,6 +1,6 @@
 <Alloy>
   <Collection src="fugitives" />
-  <Window title="Fugitives">
+  <Window title="Fugitives" id="winFugitives">
     <TableView class="table" id="tableFugitives" dataCollection="fugitives">
       <Require type="view" src="fugitivesRow" id="tableViewRowFugitives" />
     </TableView>

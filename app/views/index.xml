@@ -1,5 +1,5 @@
 <Alloy>
-  <TabGroup>
+  <TabGroup id="tabGroup">
     <Tab title="Fugitives" id="tabFugitives">
       <Require type="view" src="fugitives" id="windowFugitives" />
     </Tab>

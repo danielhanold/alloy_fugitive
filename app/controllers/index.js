@@ -35,6 +35,18 @@ if (!seeded) {
   Ti.App.Properties.setString('seeded', 'yuppers');
 }
 
+// Set the title in the Android action bar.
+if (OS_ANDROID) {
+  $.tabGroup.addEventListener('open', function(e) {
+    if (this.activity) {
+      var actionBar = this.activity.actionBar;
+      if (actionBar) {
+        actionBar.title = 'Fugitives App';
+        // This is already the top level. Can't get back.
+        actionBar.displayHomeAsUp = false;
+      }
+    }
+  });
+}
 
-
-$.index.open();
+$.tabGroup.open();
