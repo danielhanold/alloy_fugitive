@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 
 Ti.API.info('args passed to fugitive detail window');
+Ti.API.info(JSON.stringify(args));
 
 // Set default arguments.
 var title = args.name || 'Fugitive';
