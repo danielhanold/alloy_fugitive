@@ -6,5 +6,5 @@ fugitives.fetch();
 
 // Functions.
 function addNew() {
-  alert('Add New fugitive');
+
 };
