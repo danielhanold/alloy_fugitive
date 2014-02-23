@@ -19,4 +19,9 @@
   font: {
     fontSize: 14,
   }
+},
+'#buttonCapture': {
+  // By default, button is disabled. If fugitive is still at large,
+  // button gets enabled in controller.
+  enabled: false
 }

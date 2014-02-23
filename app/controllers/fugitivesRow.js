@@ -2,10 +2,11 @@ var args = arguments[0] || {};
 
 function rowClick(e) {
   Ti.API.info('User clicked on table view row');
-  //Ti.API.info(JSON.stringify(e));
 
-  // Create the fugitive detail window.
-  var fugitiveDetailController = Alloy.createController('fugitiveDetail');
+  // Create the fugitive detail window and pass
+  // all data from the to the controller.
+  var modelData = $model.toJSON() || {};
+  var fugitiveDetailController = Alloy.createController('fugitiveDetail', modelData);
   var fugitiveDetailWindow = fugitiveDetailController.getView();
 
   // Open the fugitive detail window.

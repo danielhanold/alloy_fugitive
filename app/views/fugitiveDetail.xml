@@ -1,8 +1,8 @@
 <Alloy>
-  <Window id="win" title="Fugitive Details">
+  <Window id="win">
     <View id="outerView">
       <Label id="labelStatusHeadline" class="labelHeadline">Fugitive State</Label>
-      <Label id="labelStatus" class="labelInfo">At Large</Label>
+      <Label id="labelStatus" class="labelInfo"></Label>
       <Label id="labelActionsHeadline" class="labelHeadline">Available Actions</Label>
       <Button id="buttonCapture" class="buttonAction">Capture</Button>
       <Button id="buttonDelete" class="buttonAction">Delete</Button>
