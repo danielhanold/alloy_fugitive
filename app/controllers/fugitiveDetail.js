@@ -15,3 +15,20 @@ $.labelStatus.setText(capturedText);
 if (captured === false) {
   $.buttonCapture.setEnabled(true);
 }
+
+
+// Enable the back button on Android.
+if (OS_ANDROID) {
+  $.win.addEventListener('open', function(e) {
+    if (this.activity) {
+      Ti.API.info('detected activity');
+      var actionBar = this.activity.actionBar;
+      if (actionBar) {
+        actionBar.displayHomeAsUp = true;
+        actionBar.onHomeIconItemSelected = function() {
+          $.win.close();
+        };
+      }
+    }
+  });
+}
