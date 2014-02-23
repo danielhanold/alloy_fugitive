@@ -63,4 +63,8 @@ if (OS_ANDROID) {
   });
 }
 
+// Store the tab group globally.
+Alloy.Globals.tabGroup = $.tabGroup;
+
+// Open the tab group.
 $.tabGroup.open();

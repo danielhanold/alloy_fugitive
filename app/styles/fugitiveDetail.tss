@@ -1,0 +1,4 @@
+"#win" : {
+  layout: 'vertical',
+  backgroundColor: 'white'
+}
