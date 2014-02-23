@@ -38,6 +38,7 @@ if (!seeded) {
 // Set the title in the Android action bar.
 if (OS_ANDROID) {
   $.tabGroup.addEventListener('open', function(e) {
+    // Add a title to the tab group.
     if (this.activity) {
       var actionBar = this.activity.actionBar;
       if (actionBar) {
@@ -46,6 +47,19 @@ if (OS_ANDROID) {
         actionBar.displayHomeAsUp = false;
       }
     }
+
+    // Create an "Add New" item.
+    var activity = this.activity;
+    activity.onCreateOptionsMenu = function(e) {
+      var menuItemAdd = e.menu.add({
+          title: "Add New",
+          showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS,
+      });
+      menuItemAdd.addEventListener('click', function(e) {
+        alert('add new');
+      });
+    };
+    activity.invalidateOptionsMenu();
   });
 }
 

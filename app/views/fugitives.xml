@@ -4,6 +4,7 @@
     <RightNavButton platform="ios">
       <Button id="addNew" onClick="addNew">Add New</Button>
     </RightNavButton>
+
     <TableView class="table" id="tableFugitives" dataCollection="fugitives">
       <Require type="view" src="fugitivesRow" id="tableViewRowFugitives" />
     </TableView>
