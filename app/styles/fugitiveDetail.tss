@@ -1,4 +1,22 @@
 "#win" : {
-  layout: 'vertical',
   backgroundColor: 'white'
+},
+"#outerView":  {
+  top: 10,
+  layout: 'vertical',
+  height: Ti.UI.FILL,
+},
+".labelHeadline": {
+  top: 15,
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+  font: {
+    fontSize: 18,
+  }
+},
+".labelInfo": {
+  top: 2,
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+  font: {
+    fontSize: 14,
+  }
 }
