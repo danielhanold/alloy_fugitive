@@ -8,3 +8,8 @@ fugitives.fetch();
 function addNew() {
   alert('Add New fugitive');
 };
+
+// Release bindings when window is closed.
+$.winFugitives.addEventListener('close', function() {
+  $.destroy();
+});
