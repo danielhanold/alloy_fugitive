@@ -1,0 +1,34 @@
+"#win": {
+  backgroundColor: '#FFFFFF',
+  layout: 'vertical'
+},
+"#headline": {
+  top: 15,
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+  font: {
+    fontSize: 18,
+  }
+},
+".fieldDescription": {
+  top: 5,
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+  font: {
+    fontSize: 14,
+  }
+},
+".textField": {
+  top: 3,
+  left: 10,
+  right: 10,
+  width: Ti.UI.FILL,
+  height: 30,
+},
+".textField[platform=ios]": {
+  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+  clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS,
+  top: 3,
+  left: 10,
+  right: 10,
+  width: Ti.UI.FILL,
+  height: 30
+}

@@ -1,0 +1,5 @@
+<Alloy>
+  <Window id="win" title="Add Fugitive">
+    <Label>Testing this</Label>
+  </Window>
+</Alloy>

@@ -6,7 +6,11 @@ fugitives.fetch();
 
 // Functions.
 function addNew() {
-  alert('Add New fugitive');
+  var addFugitiveController = Alloy.createController('addFugitive');
+  var addFugitiveView = addFugitiveController.getView();
+  addFugitiveView.open({
+    modal: true
+  });
 };
 
 // Release bindings when window is closed.
