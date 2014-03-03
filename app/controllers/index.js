@@ -122,7 +122,7 @@ if (OS_ANDROID) {
           showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS,
       });
       menuItemAdd.addEventListener('click', function(e) {
-        var newFugitiveController = Alloy.createController('newFugitive');
+        var newFugitiveController = Alloy.createController('addFugitive');
         var newFugitiveWindow = newFugitiveController.getView();
         newFugitiveWindow.open();
       });

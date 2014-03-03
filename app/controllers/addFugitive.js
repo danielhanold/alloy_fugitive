@@ -39,6 +39,6 @@ function closeWindow() {
 
   // On Android, simply close the window.
   if (OS_ANDROID) {
-    $win.close();
+    $.win.close();
   }
 }

@@ -1,9 +1,0 @@
-<Alloy>
-  <NavigationWindow id="navWin">
-    <Window id="win" title="Add New Fugitive">
-      <LeftNavButton>
-        <Button id="buttonClose" onClick="closeWindow">Cancel</Button>
-      </LeftNavButton>
-    </Window>
-  </NavigationWindow>
-</Alloy>
