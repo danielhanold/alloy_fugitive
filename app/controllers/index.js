@@ -12,26 +12,93 @@ fugitives.each(function(fugitive, index) {
   Ti.API.info('fugitive #' + index + ': ' + fugitive.get('name'));
 });
 
-if (!seeded) {
-  // Define yuppers names.
-	var names = ["Jeff Haynie", "Nolan Wright", "Blain Hamon", "Aaron Saunders", "Anthony Decena"];
 
-	// Loop through the names array to create a model
+// ==========================================
+// Function Declarations
+// ==========================================
+
+/**
+* HTTP Client error callback.
+*/
+function httpClientError(e) {
+  Ti.API.debug(e.error);
+  alert('Could not populate initial list');
+}
+
+/**
+* HTTP client success callback.
+*/
+function httpClientSuccess(e) {
+  Ti.API.info("Received text: " + this.responseText);
+
+  populateFugitives(JSON.parse(this.responseText), function(err, fugitives) {
+    if (err) {
+      Ti.API.error(err);
+      return;
+    }
+
+  	// Set our app property so this code doesn't run next time.
+    Ti.API.info('Initial seeding completed, added: ' + fugitives.length);
+    Ti.App.Properties.setString('seeded', 'yuppers');
+  });
+}
+
+/**
+* Create fugitive models and add to collection.
+*
+* @param fugitives
+*   Array of fugitives.
+* @param callback
+*   Callback function.
+*/
+function populateFugitives(fugitives, callback) {
+  fugitives = fugitives || [];
+  if (_.isEmpty(fugitives)) {
+    if (_.isFunction(callback)) {
+      callback('Fugitives needs to be an array');
+    }
+    Ti.API.error('Fugitives needs to be an array');
+  }
+
+	// Loop through the fugitives array to create a model
   // representing each and save it to the collection.
-  _.each(names, function(name) {
-    var fugitive = Alloy.createModel('fugitives', {
-      name: name
-    });
+  _.each(fugitives, function(item) {
+    Ti.API.error(JSON.stringify(item));
+    item = item || {};
+    if (_.isUndefined(item.name)) {
+      Ti.API.error('Fugitive name is not available');
+    }
+    else {
+      var fugitive = Alloy.createModel('fugitives', {
+        name: item.name
+      });
 
-    // Add this fugitive to the collection.
-    fugitives.add(fugitive);
+      // Add this fugitive to the collection.
+      var collection = Alloy.Collections.fugitives;
+      collection.add(fugitive);
 
-    // Save this fugitive in the database.
-    fugitive.save();
+      // Save this fugitive in the database.
+      fugitive.save();
+    }
   });
 
-	// set our app property so this code doesn't run next time.
-  Ti.App.Properties.setString('seeded', 'yuppers');
+  if (_.isFunction(callback)) {
+    callback(null, fugitives)
+  }
+}
+
+if (!seeded) {
+  // Instead of using this local data source for yuppies, download list from external source.
+	// var names = ["Jeff Haynie", "Nolan Wright", "Blain Hamon", "Aaron Saunders", "Anthony Decena"];
+
+  // Load list of yuppies from external server and populate.
+  var client = Ti.Network.createHTTPClient({
+    onload : httpClientSuccess,
+    onerror: httpClientError,
+    timeout: 30000
+  });
+  client.open("GET", 'http://bountyhunterapp.appspot.com/bounties');
+  client.send();
 }
 
 // Set the title in the Android action bar.
