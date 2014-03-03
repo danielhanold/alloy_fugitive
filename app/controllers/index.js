@@ -22,7 +22,6 @@ if (!seeded) {
     var fugitive = Alloy.createModel('fugitives', {
       name: name
     });
-    Ti.API.info('Add fugitive: ' + name);
 
     // Add this fugitive to the collection.
     fugitives.add(fugitive);

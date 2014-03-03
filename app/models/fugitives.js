@@ -28,6 +28,11 @@ exports.definition = {
 	},
 	extendCollection: function(Collection) {
 		_.extend(Collection.prototype, {
+      initialize: function() {
+        this.on('add', function(model) {
+          Ti.API.info('Fugitive was added to collection: ' + model.get('name'));
+        });
+      }
 			// extended functions and properties go here
 		});
 
