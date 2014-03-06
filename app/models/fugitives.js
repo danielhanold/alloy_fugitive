@@ -9,7 +9,7 @@ exports.definition = {
 		},
     "defaults": {
 	    "name": "",
-	    "captured": "0",
+	    "captured": 0,
 	    "url": "",
 	    "capturedLat": "",
 	    "capturedLon": ""
