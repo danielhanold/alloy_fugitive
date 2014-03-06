@@ -5,8 +5,9 @@ function rowClick(e) {
 
   // Create the fugitive detail window and pass
   // all data from the to the controller.
-  var modelData = $model.toJSON() || {};
-  var fugitiveDetailController = Alloy.createController('fugitiveDetail', modelData);
+  var fugitiveDetailController = Alloy.createController('fugitiveDetail', {
+    model: $model
+  });
   var fugitiveDetailWindow = fugitiveDetailController.getView();
 
   // Open the fugitive detail window.

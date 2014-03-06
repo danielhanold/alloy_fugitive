@@ -5,7 +5,15 @@
       <Label id="labelStatus" class="labelInfo"></Label>
       <Label id="labelActionsHeadline" class="labelHeadline">Available Actions</Label>
       <Button id="buttonCapture" class="buttonAction">Capture</Button>
-      <Button id="buttonDelete" class="buttonAction">Delete</Button>
+      <Button id="buttonDelete" class="buttonAction" onClick="showDeleteAlert">Delete</Button>
     </View>
+
+    <!-- This dialog will get triggered when user wants to delete -->
+    <AlertDialog id="dialogDelete" onClick="confirmDelete">
+      <ButtonNames>
+        <ButtonName>Confirm</ButtonName>
+        <ButtonName>Cancel</ButtonName>
+      </ButtonNames>
+    </AlertDialog>
   </Window>
 </Alloy>
