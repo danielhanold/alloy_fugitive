@@ -27,6 +27,9 @@ exports.definition = {
           Ti.API.info('Attributes changed for fugitive: ' + model.get('name') + ':');
           Ti.API.info(JSON.stringify(model.changed));
         });
+        this.on('destroy', function(model) {
+          Ti.API.info('Model was destroyed: ' + model.get('name'));
+        });
       }
 		});
 
