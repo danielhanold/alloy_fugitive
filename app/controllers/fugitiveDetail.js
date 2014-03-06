@@ -13,7 +13,7 @@ $.win.setTitle(title);
 $.labelStatus.setText(capturedText);
 
 // Enable capture button if fugitive is still at large.
-if (captured === false) {
+if (captured === 0) {
   $.buttonCapture.setEnabled(true);
 }
 
@@ -28,6 +28,13 @@ function confirmDelete(e) {
     $.win.close();
     args.model.destroy();
   }
+}
+
+/**
+* Capture a fugitive.
+*/
+function eventClickCapture() {
+  args.model.set('captured', 1);
 }
 
 // Enable the back button on Android.

@@ -22,6 +22,12 @@ exports.definition = {
 	extendModel: function(Model) {
 		_.extend(Model.prototype, {
 			// extended functions and properties go here
+      initialize: function() {
+        this.on('change', function(model) {
+          Ti.API.info('Attributes changed for fugitive: ' + model.get('name') + ':');
+          Ti.API.info(JSON.stringify(model.changed));
+        });
+      }
 		});
 
 		return Model;
