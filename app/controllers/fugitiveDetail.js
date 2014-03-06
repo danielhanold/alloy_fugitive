@@ -34,7 +34,8 @@ function confirmDelete(e) {
 * Capture a fugitive.
 */
 function eventClickCapture() {
-  args.model.set('captured', 1);
+  args.model.save({captured: 1});
+  $.win.close();
 }
 
 // Enable the back button on Android.

@@ -13,6 +13,10 @@ function addNew() {
   });
 };
 
+function fugitivesAtLarge(collection) {
+  return collection.where({captured:0});
+}
+
 // Release bindings when window is closed.
 $.winFugitives.addEventListener('close', function() {
   $.destroy();

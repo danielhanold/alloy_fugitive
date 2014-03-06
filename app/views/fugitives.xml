@@ -5,7 +5,7 @@
       <Button id="addNew" onClick="addNew">Add New</Button>
     </RightNavButton>
 
-    <TableView class="table" id="tableFugitives" dataCollection="fugitives">
+    <TableView class="table" id="tableFugitives" dataCollection="fugitives" dataFilter="fugitivesAtLarge">
       <Require type="view" src="fugitivesRow" id="tableViewRowFugitives" />
     </TableView>
   </Window>
