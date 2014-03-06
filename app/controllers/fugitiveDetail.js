@@ -3,16 +3,12 @@ var args = arguments[0] || {};
 Ti.API.info('args passed to fugitive detail window');
 Ti.API.info(JSON.stringify(args));
 
-// Set defaults and popuplate with model data, if available.
-var title = 'Fugitive';
-var captured = false;
-var capturedText = 'At Large';
-if (args.model instanceof Backbone.Model) {
-  title = args.model.get('name');
-  captured = args.model.get('captured');
-  capturedText = (captured === true) ? 'Captured' : 'At Large';
-}
+// Get data from model.
+var title = args.model.get('name');
+var captured = args.model.get('captured');
+var capturedText = (captured === true) ? 'Captured' : 'At Large';
 
+// Populate window.
 $.win.setTitle(title);
 $.labelStatus.setText(capturedText);
 
@@ -30,6 +26,7 @@ function confirmDelete(e) {
   // Only delete if this user confirms deletion.
   if (e.index === 0) {
     $.win.close();
+    args.model.destroy();
   }
 }
 
