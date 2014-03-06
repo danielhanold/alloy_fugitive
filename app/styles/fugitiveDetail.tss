@@ -31,4 +31,9 @@
   title: 'Delete Fugitive',
   message: 'Are you sure you want to delete this fugitive?',
   cancel: 1
+},
+'#fugitiveImage': {
+  width: 100,
+  height: 100,
+  backgroundImage: '/images/burglar.png',
 }

@@ -1,8 +1,15 @@
 <Alloy>
   <Window id="win">
     <View id="outerView">
+      <!-- Fugitive Status -->
       <Label id="labelStatusHeadline" class="labelHeadline">Fugitive State</Label>
       <Label id="labelStatus" class="labelInfo"></Label>
+
+      <!-- Fugitive Image -->
+      <Label id="labelImageHeadline" class="labelHeadline">Image</Label>
+      <ImageView id="fugitiveImage" />
+
+      <!-- Actions -->
       <Label id="labelActionsHeadline" class="labelHeadline">Available Actions</Label>
       <Button id="buttonCapture" class="buttonAction" onClick="eventClickCapture">Capture</Button>
       <Button id="buttonDelete" class="buttonAction" onClick="showDeleteAlert">Delete</Button>
