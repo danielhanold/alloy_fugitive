@@ -47,6 +47,41 @@ function showImageOptions() {
 }
 
 /**
+* Store the photo in a directory on the filesystem.
+*
+* @param e.blob
+*   Blob to store on the file system.
+* @param e.filename
+*   Name to use for file storage.
+*/
+function storeFile(e, callback) {
+  e = e || {};
+  callback = callback || function() {};
+
+  // Ensure blob and filename are available.
+  if (_.isUndefined(e.blob) || _.isUndefined(e.filename)) {
+    callback(true, null);
+  }
+
+  // Determine the extension.
+  var mimeType = e.blob.getMimeType();
+  var fileExtension = '';
+  if (mimeType.indexOf('/')) {
+    var elements = mimeType.split('/');
+    fileExtension = elements[elements.length - 1];
+  }
+
+  var filename = 'photo-' + String(e.filename) + '.' + fileExtension;
+  var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory, filename);
+  file.write(e.blob);
+  Ti.API.info('Successfully wrote file. nativePath =' + file.getNativePath());
+
+  // Nullify stuff.
+  e.blob = null;
+  callback(null, file);
+}
+
+/**
 * Take the photo.
 */
 function selectPhoto(e) {
@@ -71,7 +106,18 @@ function selectPhoto(e) {
   function optionSuccess(e) {
     e = e || {};
     if (e.media) {
-      $.fugitiveImage.setImage(e.media);
+      storeFile({
+        blob: e.media,
+        filename: args.model.id
+      }, function(error, file) {
+        if (error) {
+          alert('Something went wrong. Please try again later.');
+          return;
+        }
+
+        // Set the stored blob in the image view.
+        $.fugitiveImage.setImage(file.read());
+      });
     }
   }
 
