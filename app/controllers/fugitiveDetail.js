@@ -74,7 +74,7 @@ function storeFile(e, callback) {
   var filename = 'photo-' + String(e.filename) + '.' + fileExtension;
   var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory, filename);
   file.write(e.blob);
-  Ti.API.info('Successfully wrote file. nativePath =' + file.getNativePath());
+  Ti.API.info('Successfully wrote file. nativePath = ' + file.getNativePath());
 
   // Nullify stuff.
   e.blob = null;
@@ -114,6 +114,11 @@ function selectPhoto(e) {
           alert('Something went wrong. Please try again later.');
           return;
         }
+
+        // Store the native path as the url in the fugitive model.
+        args.model.save({
+          url: file.getNativePath()
+        });
 
         // Set the stored blob in the image view.
         $.fugitiveImage.setImage(file.read());
