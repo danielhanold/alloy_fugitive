@@ -6,11 +6,17 @@ Ti.API.info(JSON.stringify(args));
 // Get data from model.
 var title = args.model.get('name');
 var captured = args.model.get('captured');
+var photoPath = args.model.get('url');
 var capturedText = (captured === 1) ? 'Captured' : 'At Large';
 
 // Populate window.
 $.win.setTitle(title);
 $.labelStatus.setText(capturedText);
+
+// If a url is stored
+if (photoPath) {
+  $.fugitiveImage.setImage(photoPath);
+}
 
 // Enable capture button if fugitive is still at large.
 if (captured === 0) {
