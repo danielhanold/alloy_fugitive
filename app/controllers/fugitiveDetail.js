@@ -40,7 +40,57 @@ function confirmDelete(e) {
 * Capture a fugitive.
 */
 function eventClickCapture() {
-  args.model.save({captured: 1});
+  // Set the purpose of the location services.
+  Ti.Geolocation.purpose = "Tracking down criminal scum";
+
+  if (Ti.Geolocation.getLocationServicesEnabled() === false) {
+    alert('Location services are not currently enabled. Please enable and capture again.');
+    return;
+  }
+
+  // Define location accuracy.
+  if (OS_IOS) {
+    Ti.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
+  }
+  if (OS_ANDROID) {
+    Ti.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_HIGH;
+  }
+
+  /**
+  * React to position detection.
+  */
+  function updateAndSaveFugitive(e) {
+    e = e || {};
+    e.coords = e.coords || {};
+
+    if (e.success === true && _.isNumber(e.coords.latitude) && _.isNumber(e.coords.longitude)) {
+      args.model.save({
+        captured: 1,
+        capturedLat: e.coords.latitude,
+        capturedLon: e.coords.longitude
+      });
+      $.dialogCapture.setMessage("You successfully captured a fugitive.");
+    }
+    else {
+      // No coordinates detected, just save the fugitive.
+      args.model.save({
+        captured: 1
+      });
+      $.dialogCapture.setMessage("We could not detect his coordinates, but you still successfully captured a fugitive.");
+    }
+
+    // Show the capture dialog.
+    $.dialogCapture.show();
+  }
+
+  // Get the current position.
+  Ti.Geolocation.getCurrentPosition(updateAndSaveFugitive);
+}
+
+/**
+* Close the window.
+*/
+function closeWindow() {
   $.win.close();
 }
 

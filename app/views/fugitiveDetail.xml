@@ -24,6 +24,13 @@
       </ButtonNames>
     </AlertDialog>
 
+    <!-- This dialog will get triggered when user has captured a fugitive -->
+    <AlertDialog id="dialogCapture" onClick="closeWindow" title="Success!">
+      <ButtonNames>
+        <ButtonName>Ok</ButtonName>
+      </ButtonNames>
+    </AlertDialog>
+
     <!-- This OptionDialog allows the user to select the source for selection a photo. -->
     <OptionDialog id="optionDialogImage" title="Select Photo Source" onClick="selectPhoto">
       <Options>
