@@ -6,7 +6,7 @@ Ti.API.info(JSON.stringify(args));
 // Get data from model.
 var title = args.model.get('name');
 var captured = args.model.get('captured');
-var capturedText = (captured === true) ? 'Captured' : 'At Large';
+var capturedText = (captured === 1) ? 'Captured' : 'At Large';
 
 // Populate window.
 $.win.setTitle(title);
