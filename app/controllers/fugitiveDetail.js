@@ -38,6 +38,71 @@ function eventClickCapture() {
   $.win.close();
 }
 
+/**
+* Allow the user to select where the image
+* should be selected from.
+*/
+function showImageOptions() {
+  $.optionDialogImage.show();
+}
+
+/**
+* Take the photo.
+*/
+function selectPhoto(e) {
+  /**
+  * User cancels photo selection.
+  */
+  function optionsCancel(e) {
+    Ti.API.error('User cancelled photo upload');
+  }
+
+  /**
+  * There was an error in the photo upload.
+  */
+  function optionError(e) {
+    Ti.API.error('There was an error selecting the photo');
+    alert('Your photo could not be selected. Please try again.');
+  }
+
+  /**
+  * Successful photo selection.
+  */
+  function optionSuccess(e) {
+    e = e || {};
+    if (e.media) {
+      $.fugitiveImage.setImage(e.media);
+    }
+  }
+
+  // Define options for both taking a new photo
+  // and selecting the photo from the gallery.
+  var options = {
+    allowEditing: true,
+    mediaTypes : [Ti.Media.MEDIA_TYPE_PHOTO],
+    cancel: optionsCancel,
+    error: optionError,
+    success: optionSuccess
+  };
+
+  switch (e.index) {
+  case 0:
+    // Upload from photo gallery.
+    Ti.Media.openPhotoGallery(options);
+    break;
+
+  case 1:
+    // Upload from camera. Ensure this is not a simulator.
+    if (Titanium.Platform.model == 'google_sdk' || Titanium.Platform.model == 'Simulator') {
+      alert('You cannot take a photo on the simulator');
+      return;
+    }
+
+    Ti.Media.showCamera(options);
+    break;
+  }
+}
+
 // Enable the back button on Android.
 if (OS_ANDROID) {
   $.win.addEventListener('open', function(e) {

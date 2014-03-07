@@ -36,4 +36,7 @@
   width: 100,
   height: 100,
   backgroundImage: '/images/burglar.png',
+},
+'#optionDialogImage[platform=ios]': {
+  cancel: 2
 }

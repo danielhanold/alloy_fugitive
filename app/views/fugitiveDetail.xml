@@ -11,6 +11,7 @@
 
       <!-- Actions -->
       <Label id="labelActionsHeadline" class="labelHeadline">Available Actions</Label>
+      <Button id="buttonImage" class="buttonAction" onClick="showImageOptions">Update Photo</Button>
       <Button id="buttonCapture" class="buttonAction" onClick="eventClickCapture">Capture</Button>
       <Button id="buttonDelete" class="buttonAction" onClick="showDeleteAlert">Delete</Button>
     </View>
@@ -22,5 +23,14 @@
         <ButtonName>Cancel</ButtonName>
       </ButtonNames>
     </AlertDialog>
+
+    <!-- This OptionDialog allows the user to select the source for selection a photo. -->
+    <OptionDialog id="optionDialogImage" title="Select Photo Source" onClick="selectPhoto">
+      <Options>
+          <Option>Photo Gallery</Option>
+          <Option>Take a photo</Option>
+          <Option>Cancel</Option>
+      </Options>
+    </OptionDialog>
   </Window>
 </Alloy>
