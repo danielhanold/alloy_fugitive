@@ -48,7 +48,18 @@ function confirmDelete(e) {
 * Open the map view.
 */
 function showMapView(e) {
-  Ti.API.info('supposed to open the map view');
+  var mapDetailController = Alloy.createController('mapDetail', {
+    lat: lat,
+    lon: lon
+  });
+  var mapDetailView = mapDetailController.getView();
+
+  if (OS_IOS) {
+    Alloy.Globals.tabGroup.activeTab.open(mapDetailView);
+  }
+  if (OS_ANDROID) {
+    mapDetailView.open();
+  }
 }
 
 /**
