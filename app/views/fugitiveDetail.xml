@@ -13,6 +13,7 @@
       <Label id="labelActionsHeadline" class="labelHeadline">Available Actions</Label>
       <Button id="buttonImage" class="buttonAction" onClick="showImageOptions">Update Photo</Button>
       <Button id="buttonCapture" class="buttonAction" onClick="eventClickCapture">Capture</Button>
+      <Button id="buttonViewMap" class="buttonAction" onClick="showMapView">Show on Map</Button>
       <Button id="buttonDelete" class="buttonAction" onClick="showDeleteAlert">Delete</Button>
     </View>
 

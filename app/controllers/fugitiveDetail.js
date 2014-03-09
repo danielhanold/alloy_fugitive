@@ -1,4 +1,5 @@
 var args = arguments[0] || {};
+args.model = args.model || {};
 
 Ti.API.info('args passed to fugitive detail window');
 Ti.API.info(JSON.stringify(args));
@@ -7,6 +8,8 @@ Ti.API.info(JSON.stringify(args));
 var title = args.model.get('name');
 var captured = args.model.get('captured');
 var photoPath = args.model.get('url');
+var lat = args.model.get('capturedLat');
+var lon = args.model.get('capturedLon');
 var capturedText = (captured === 1) ? 'Captured' : 'At Large';
 
 // Populate window.
@@ -23,6 +26,11 @@ if (captured === 0) {
   $.buttonCapture.setEnabled(true);
 }
 
+// Enable map button if coordinates are available.
+if (_.isNumber(lat) && _.isNumber(lon)) {
+  $.buttonViewMap.setEnabled(true);
+}
+
 // Functions //
 function showDeleteAlert(e) {
   $.dialogDelete.show();
@@ -34,6 +42,13 @@ function confirmDelete(e) {
     $.win.close();
     args.model.destroy();
   }
+}
+
+/**
+* Open the map view.
+*/
+function showMapView(e) {
+  Ti.API.info('supposed to open the map view');
 }
 
 /**
