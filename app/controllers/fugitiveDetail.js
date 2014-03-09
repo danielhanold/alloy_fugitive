@@ -50,7 +50,8 @@ function confirmDelete(e) {
 function showMapView(e) {
   var mapDetailController = Alloy.createController('mapDetail', {
     lat: lat,
-    lon: lon
+    lon: lon,
+    fugitiveName: title
   });
   var mapDetailView = mapDetailController.getView();
 
