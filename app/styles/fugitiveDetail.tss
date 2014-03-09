@@ -15,7 +15,7 @@
   }
 },
 ".labelInfo": {
-  color: '#CCCCCC',
+  color: '#484848',
   top: 2,
   textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
   font: {

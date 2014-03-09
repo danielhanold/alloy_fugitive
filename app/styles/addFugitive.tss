@@ -31,4 +31,7 @@
   right: 10,
   width: Ti.UI.FILL,
   height: 30
+},
+'#createFugitive': {
+  top: 10
 }

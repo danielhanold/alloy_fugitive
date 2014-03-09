@@ -1,6 +1,6 @@
 <Alloy>
   <Window id="win">
-    <View id="outerView">
+    <ScrollView id="outerView">
       <!-- Fugitive Status -->
       <Label id="labelStatusHeadline" class="labelHeadline">Fugitive State</Label>
       <Label id="labelStatus" class="labelInfo"></Label>
@@ -15,7 +15,7 @@
       <Button id="buttonCapture" class="buttonAction" onClick="eventClickCapture">Capture</Button>
       <Button id="buttonViewMap" class="buttonAction" onClick="showMapView">Show on Map</Button>
       <Button id="buttonDelete" class="buttonAction" onClick="showDeleteAlert">Delete</Button>
-    </View>
+    </ScrollView>
 
     <!-- This dialog will get triggered when user wants to delete -->
     <AlertDialog id="dialogDelete" onClick="confirmDelete">
