@@ -12,3 +12,6 @@
 
 // Loads the map module, which can be referenced by Alloy.Globals.Map
 Alloy.Globals.Map = require('ti.map');
+
+// Load a "loading indicator" widget.
+Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");

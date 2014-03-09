@@ -87,6 +87,8 @@ function eventClickCapture() {
   * React to position detection.
   */
   function updateAndSaveFugitive(e) {
+    Alloy.Globals.loading.hide();
+
     e = e || {};
     e.coords = e.coords || {};
 
@@ -111,7 +113,10 @@ function eventClickCapture() {
   }
 
   // Get the current position.
-  Ti.Geolocation.getCurrentPosition(updateAndSaveFugitive);
+  Alloy.Globals.loading.show('Determining location', false);
+  setTimeout(function() {
+    Ti.Geolocation.getCurrentPosition(updateAndSaveFugitive);
+  }, 3000);
 }
 
 /**
