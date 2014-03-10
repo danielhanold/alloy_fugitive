@@ -145,20 +145,14 @@ function showImageOptions() {
 function storeFile(e, callback) {
   e = e || {};
   callback = callback || function() {};
-
+  var fileTools = require('fileTools');
   // Ensure blob and filename are available.
   if (_.isUndefined(e.blob) || _.isUndefined(e.filename)) {
     callback(true, null);
   }
 
   // Determine the extension.
-  var mimeType = e.blob.getMimeType();
-  var fileExtension = '';
-  if (mimeType.indexOf('/')) {
-    var elements = mimeType.split('/');
-    fileExtension = elements[elements.length - 1];
-  }
-
+  var fileExtension = fileTools.getFileTypeFromBlob(e.blob);
   var filename = 'photo-' + String(e.filename) + '.' + fileExtension;
   var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory, filename);
   file.write(e.blob);
