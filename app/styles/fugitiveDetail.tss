@@ -22,6 +22,9 @@
     fontSize: 14,
   }
 },
+'.buttonAction': {
+  top: 3,
+},
 '#buttonCapture': {
   // By default, button is disabled. If fugitive is still at large,
   // button gets enabled in controller.
