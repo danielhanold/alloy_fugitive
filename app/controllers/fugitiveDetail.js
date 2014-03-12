@@ -31,6 +31,13 @@ if (_.isNumber(lat) && _.isNumber(lon)) {
   $.buttonViewMap.setEnabled(true);
 }
 
+$.win.addEventListener('close', function(e) {
+  Ti.API.error('fugitive window was closed');
+  $.win.removeAllChildren();
+  $.win = null;
+  $.destroy();
+});
+
 // Functions //
 function showDeleteAlert(e) {
   $.dialogDelete.show();

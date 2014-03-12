@@ -1,7 +1,21 @@
 var args = arguments[0] || {};
 
+////////////////////////////////////////
+// Event listeners.
+////////////////////////////////////////
+$.createFugitive.addEventListener('click', createFugitive);
+$.win.addEventListener('close', destroyWindow);
+
+
+
+////////////////////////////////////////
 // Functions.
-$.createFugitive.addEventListener('click', function(e) {
+////////////////////////////////////////
+
+/**
+* Create a new fugitive.
+*/
+function createFugitive(e) {
   // Ensure name was entered.
   var name = $.fugitiveName.getValue().trim();
   Ti.API.info('Fugitive Name: ' + name);
@@ -26,7 +40,8 @@ $.createFugitive.addEventListener('click', function(e) {
     // Close the window.
     closeWindow();
   }
-});
+}
+
 
 /**
 * Close the window.
@@ -40,5 +55,20 @@ function closeWindow() {
   // On Android, simply close the window.
   if (OS_ANDROID) {
     $.win.close();
+  }
+}
+
+
+
+/**
+* Destroy window elements.
+*/
+function destroyWindow(e) {
+  $.createFugitive.removeEventListener('click', createFugitive);
+  $.win.removeEventListener('close', destroyWindow);
+  $.win = null;
+
+  if (OS_IOS) {
+    $.navWin = null;
   }
 }
