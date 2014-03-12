@@ -4,6 +4,12 @@ args.model = args.model || {};
 Ti.API.info('args passed to fugitive detail window');
 Ti.API.info(JSON.stringify(args));
 
+
+
+////////////////////////////////////////
+// Window initialization.
+////////////////////////////////////////
+
 // Get data from model.
 var title = args.model.get('name');
 var captured = args.model.get('captured');
@@ -31,18 +37,61 @@ if (_.isNumber(lat) && _.isNumber(lon)) {
   $.buttonViewMap.setEnabled(true);
 }
 
-$.win.addEventListener('close', function(e) {
-  Ti.API.error('fugitive window was closed');
-  $.win.removeAllChildren();
-  $.win = null;
-  $.destroy();
-});
 
-// Functions //
+
+////////////////////////////////////////
+// Event Listeners.
+////////////////////////////////////////
+$.win.addEventListener('open', eventWinOpen);
+$.win.addEventListener('close', eventWinClose);
+
+
+
+////////////////////////////////////////
+// Functions.
+////////////////////////////////////////
+
+/**
+* Destroy window elements.
+*/
+function eventWinClose() {
+  $.win.removeEventListener('open', eventWinOpen);
+  $.win.removeEventListener('close', eventWinClose);
+  $.win = null;
+}
+
+/**
+* Add back button when opened on Android.
+*
+* @param e
+*   Window object.
+*/
+function eventWinOpen(e) {
+  if (OS_ANDROID) {
+    // If this window has an activity, add a back button.
+    if ($.win.activity) {
+      Ti.API.info('detected activity');
+      var actionBar = this.activity.actionBar;
+      if (actionBar) {
+        actionBar.displayHomeAsUp = true;
+        actionBar.onHomeIconItemSelected = function() {
+          $.win.close();
+        };
+      }
+    }
+  }
+}
+
+/**
+* Show delete dialog.
+*/
 function showDeleteAlert(e) {
   $.dialogDelete.show();
 }
 
+/**
+* Delete fugitive.
+*/
 function confirmDelete(e) {
   // Only delete if this user confirms deletion.
   if (e.index === 0) {
@@ -241,20 +290,4 @@ function selectPhoto(e) {
     Ti.Media.showCamera(options);
     break;
   }
-}
-
-// Enable the back button on Android.
-if (OS_ANDROID) {
-  $.win.addEventListener('open', function(e) {
-    if (this.activity) {
-      Ti.API.info('detected activity');
-      var actionBar = this.activity.actionBar;
-      if (actionBar) {
-        actionBar.displayHomeAsUp = true;
-        actionBar.onHomeIconItemSelected = function() {
-          $.win.close();
-        };
-      }
-    }
-  });
 }
