@@ -33,7 +33,11 @@
 '#buttonViewMap' : {
   // Button should only be enabled if coordinates are available.
   enabled: false
-}
+},
+'#fillerView': {
+  height: 15,
+  width: Ti.UI.FILL,
+},
 '#dialogDelete': {
   title: 'Delete Fugitive',
   message: 'Are you sure you want to delete this fugitive?',
